@@ -31,17 +31,16 @@ public class MainController {
      */
     @PostMapping(path="/addClient") // Map ONLY POST Requests
     public @ResponseBody
-    String addNewClient (@RequestParam String nom
-            , @RequestParam String prenom) {
+    String addNewClient (@RequestParam String p_nom
+            , @RequestParam String p_prenom) {
         // @ResponseBody means the returned String is the response, not a view name
         // @RequestParam means it is a parameter from the GET or POST request
 
         Client n = new Client();
-        //TODO post body
-        /*n.setName(name);
-        n.setEmail(email);*/
+        n.setNom(p_nom);
+        n.setPrenom(p_prenom);
         clientRepository.save(n);
-        return "Saved";
+        return "Client Saved";
     }
 
     @GetMapping(path="/allClient")
@@ -61,17 +60,18 @@ public class MainController {
      */
     @PostMapping(path="/addCompteCourant") // Map ONLY POST Requests
     public @ResponseBody
-    String addNewCompteCourant (@RequestParam String name
-            , @RequestParam String email) {
+    String addNewCompteCourant (@RequestParam String p_intitule
+            , @RequestParam int p_solde
+            , @RequestParam int p_tauxInteret) {
         // @ResponseBody means the returned String is the response, not a view name
         // @RequestParam means it is a parameter from the GET or POST request
 
         CompteCourant n = new CompteCourant();
-        //TODO post body
-        /*n.setName(name);
-        n.setEmail(email);*/
+        n.setIntitule(p_intitule);
+        n.setSolde(p_solde);
+        n.setTauxInteret(p_tauxInteret);
         compteCourantRepository.save(n);
-        return "Saved";
+        return "Compte courant Saved";
     }
 
     @GetMapping(path="/allCompteCourant")
@@ -90,17 +90,18 @@ public class MainController {
      */
     @PostMapping(path="/addCompteCourant") // Map ONLY POST Requests
     public @ResponseBody
-    String addNewCompteEpargne (@RequestParam String name
-            , @RequestParam String email) {
+    String addNewCompteEpargne (@RequestParam String p_intitule
+            , @RequestParam int p_solde
+            , @RequestParam int p_montantDecouvertAutorise) {
         // @ResponseBody means the returned String is the response, not a view name
         // @RequestParam means it is a parameter from the GET or POST request
 
         CompteEpargne n = new CompteEpargne();
-        //TODO post body
-        /*n.setName(name);
-        n.setEmail(email);*/
+        n.setIntitule(p_intitule);
+        n.setSolde(p_solde);
+        n.setMontantDecouvertAutorise(p_montantDecouvertAutorise);
         compteEpargneRepository.save(n);
-        return "Saved";
+        return "compte épargne Saved";
     }
 
     @GetMapping(path="/allCompteCourant")
