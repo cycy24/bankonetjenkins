@@ -1,6 +1,7 @@
 package com.formation.bankonet.controller;
 
 import com.formation.bankonet.models.Client;
+import com.formation.bankonet.models.Compte;
 import com.formation.bankonet.models.CompteCourant;
 import com.formation.bankonet.models.CompteEpargne;
 import com.formation.bankonet.repositories.ClientRepository;
@@ -9,6 +10,9 @@ import com.formation.bankonet.repositories.CompteEpargneRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller // This means that this class is a Controller
 @RequestMapping(path="/client") // This means URL's start with /demo (after Application path)
@@ -48,11 +52,42 @@ public class MainController {
     }
 
 
+    @DeleteMapping(path="/deleteClient")
+    public @ResponseBody String deleteCompteById(@RequestParam int p_ClientID) {
+
+        clientRepository.deleteById(p_ClientID);
+        return "Client deleted";
+    }
+
+    @PatchMapping(path="/updateClient")
+    public @ResponseBody String deleteCompteById(@RequestParam String p_nom
+            , @RequestParam String p_prenom) {
+
+        Client n = new Client();
+        n.setNom(p_nom);
+        n.setPrenom(p_prenom);
+        clientRepository.save(n);
+        return "Client updated";
+    }
+
+
+    @GetMapping(path="/clientAccount")
+    public @ResponseBody Client getClientAndAccount(@RequestParam int p_clientid){
+        //clientRepository.findCompteClient(p_clientid)
+
+        Client c = new Client();
+
+        List<Compte> compteList = new ArrayList<>();
+
+        c = clientRepository.findById(p_clientid).get();
+
+        while(clientRepository.findCompteClient(p_clientid).iterator().hasNext()) {
+            c.addCompte(clientRepository.findCompteClient(p_clientid).iterator().next());
+        }
 
 
 
-
-
-
+        return c;
+    }
 
 }

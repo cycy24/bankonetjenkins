@@ -1,5 +1,6 @@
 package com.formation.bankonet.controller;
 
+import com.formation.bankonet.models.Compte;
 import com.formation.bankonet.models.CompteCourant;
 import com.formation.bankonet.repositories.CompteCourantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,5 +40,27 @@ public class CompteCourantController {
     public @ResponseBody Iterable<CompteCourant> getCompteCourantList() {
         // This returns a JSON or XML with the users
         return compteCourantRepository.findAll();
+    }
+
+    @DeleteMapping(path="/deleteCompteCourant")
+    public @ResponseBody String deleteCompteById(@RequestParam int p_CompteID) {
+
+        compteCourantRepository.deleteById(p_CompteID);
+        return "Compte courant deleted";
+    }
+
+    @PatchMapping(path="/updateCompte")
+    public @ResponseBody String getCompteCourantList(@RequestParam int p_compteID,@RequestParam String p_intitule
+            , @RequestParam int p_solde
+            , @RequestParam int p_tauxInteret) {
+
+        CompteCourant n = new CompteCourant();
+        n.setIntitule(p_intitule);
+        n.setSolde(p_solde);
+        n.setNumero(p_compteID);
+        n.setTauxInteret(p_tauxInteret);
+
+        compteCourantRepository.save(n);
+        return "Compte courant updated";
     }
 }

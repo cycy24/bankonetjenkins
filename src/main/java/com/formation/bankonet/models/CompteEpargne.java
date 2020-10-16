@@ -6,39 +6,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class CompteEpargne {
+public class CompteEpargne extends Compte{
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private int numero;
 
-    protected String intitule;
-    protected double solde;
     protected double montantDecouvertAutorise;
-    protected int idClient;
-
-    public int getNumero() {
-        return numero;
-    }
-
-    public void setNumero(int numero) {
-        this.numero = numero;
-    }
-
-    public String getIntitule() {
-        return intitule;
-    }
-
-    public void setIntitule(String intitule) {
-        this.intitule = intitule;
-    }
-
-    public double getSolde() {
-        return solde;
-    }
-
-    public void setSolde(double solde) {
-        this.solde = solde;
-    }
 
     public double getMontantDecouvertAutorise() {
         return montantDecouvertAutorise;
@@ -46,13 +18,5 @@ public class CompteEpargne {
 
     public void setMontantDecouvertAutorise(double montantDecouvertAutorise) {
         this.montantDecouvertAutorise = montantDecouvertAutorise;
-    }
-
-    public int getIdClient() {
-        return idClient;
-    }
-
-    public void setIdClient(int idClient) {
-        this.idClient = idClient;
     }
 }
