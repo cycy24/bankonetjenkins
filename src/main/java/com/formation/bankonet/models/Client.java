@@ -8,10 +8,10 @@ import javax.persistence.Id;
 public class Client {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private int identifiant;
+    protected int identifiant;
 
-    private String nom;
-    private String prenom;
+    protected String nom;
+    protected String prenom;
 
     public int getIdentifiant() {
         return identifiant;

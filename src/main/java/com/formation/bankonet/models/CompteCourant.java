@@ -11,10 +11,10 @@ public class CompteCourant {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private int numero;
 
-    private String intitule;
-    private double solde;
-    private double tauxInteret;
-    private int idClient;
+    protected String intitule;
+    protected double solde;
+    protected double tauxInteret;
+    protected int idClient;
 
     public int getNumero() {
         return numero;
