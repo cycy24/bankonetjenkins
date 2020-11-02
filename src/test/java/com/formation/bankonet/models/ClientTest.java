@@ -11,7 +11,7 @@ class ClientTest extends Client{
     void setUp() {
         this.nom = "Patrick";
         this.prenom = "Patrick";
-        CompteCourant compteTest = new CompteCourant();
+        CompteEpargne compteTest = new CompteEpargne();
         compteTest.setTauxInteret(1);
         compteTest.setSolde(10);
         compteTest.setIntitule("Test");

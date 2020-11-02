@@ -7,26 +7,26 @@ import javax.persistence.Id;
 
 @Entity
 public class CompteEpargne extends Compte{
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
 
-    protected double montantDecouvertAutorise;
 
-    public double getMontantDecouvertAutorise() {
-        return montantDecouvertAutorise;
+    protected double tauxInteret;
+
+    public double getTauxInteret() {
+        return tauxInteret;
     }
 
-    public void setMontantDecouvertAutorise(double montantDecouvertAutorise) {
-        this.montantDecouvertAutorise = montantDecouvertAutorise;
+    public void setTauxInteret(double tauxInteret) {
+        this.tauxInteret = tauxInteret;
     }
 
     @Override
     public String toString() {
-        return "CompteEpargne{" +
-                "montantDecouvertAutorise=" + montantDecouvertAutorise +
+        return "CompteCourant{" +
+                "tauxInteret=" + tauxInteret +
                 ", numero=" + numero +
                 ", intitule='" + intitule + '\'' +
                 ", solde=" + solde +
                 '}';
     }
 }
+

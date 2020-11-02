@@ -32,7 +32,6 @@ public class CompteEpargneController {
         CompteEpargne n = new CompteEpargne();
         n.setIntitule(p_intitule);
         n.setSolde(p_solde);
-        n.setMontantDecouvertAutorise(p_montantDecouvertAutorise);
         compteEpargneRepository.save(n);
         return "compte épargne Saved";
     }
@@ -60,7 +59,6 @@ public class CompteEpargneController {
         n.setNumero(p_compteID);
         n.setIntitule(p_intitule);
         n.setSolde(p_solde);
-        n.setMontantDecouvertAutorise(p_montantDecouvertAutorise);
 
         compteEpargneRepository.save(n);
         return "Compte Epargne updated";

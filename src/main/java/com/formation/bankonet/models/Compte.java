@@ -1,13 +1,21 @@
 package com.formation.bankonet.models;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
 public abstract class Compte {
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     protected int numero;
 
     protected String intitule;
     protected double solde;
+
+
+    protected Client client;
 
     public String getIntitule() {
         return intitule;

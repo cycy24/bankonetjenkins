@@ -2,6 +2,7 @@ package com.formation.bankonet.models;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Client {
@@ -13,18 +14,18 @@ public class Client {
     protected String prenom;
 
     @ElementCollection
-    @CollectionTable(name="comptecourant", joinColumns=@JoinColumn(name="identifiant"))
-    @Column(name="idClient")
-    protected List<CompteCourant> compteListCourant = new ArrayList();
+    @CollectionTable(name="comptecourant", joinColumns=@JoinColumn(name="idClient"))
+    protected Set<CompteCourant> compteListCourant ;
+
 
     @Transient
     protected List<Compte> compteList = new ArrayList();
 
-    public List<CompteCourant> getCompteListCourant() {
+    public Set<CompteCourant> getCompteListCourant() {
         return compteListCourant;
     }
 
-    public void setCompteListCourant(List<CompteCourant> compteListCourant) {
+    public void setCompteListCourant(Set<CompteCourant> compteListCourant) {
         this.compteListCourant = compteListCourant;
     }
 

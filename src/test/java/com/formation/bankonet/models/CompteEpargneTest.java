@@ -10,7 +10,7 @@ class CompteEpargneTest extends CompteEpargne{
     @BeforeEach
     void setUp() {
         this.intitule = "Compte A";
-        this.montantDecouvertAutorise = 200;
+        this.tauxInteret = 0.1;
         this.solde = 2;
     }
 
@@ -38,19 +38,19 @@ class CompteEpargneTest extends CompteEpargne{
 
     @Test
     void get_montantDecouvertAutorise_retourne_montantDecouvertAutorise() {
-        assertEquals(this.getMontantDecouvertAutorise(),200);
+        assertEquals(this.getTauxInteret(),0.1);
     }
 
     @Test
     void sset_montantDecouvertAutorise_retourne_montantDecouvertAutorise() {
-        this.setMontantDecouvertAutorise(5);
-        assertEquals(this.montantDecouvertAutorise,5);
+        this.setTauxInteret(5);
+        assertEquals(this.tauxInteret,5);
     }
 
     @Test
     void testToString() {
         assertEquals(this.toString(), "CompteEpargne{" +
-                "montantDecouvertAutorise=" + 200.0 +
+                "tauxInteret=" + 0.1 +
                 ", numero=" + 0 +
                 ", intitule='" + "Compte A" + '\'' +
                 ", solde=" + 2.0 +

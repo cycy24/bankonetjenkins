@@ -31,7 +31,6 @@ public class CompteCourantController {
         CompteCourant n = new CompteCourant();
         n.setIntitule(p_intitule);
         n.setSolde(p_solde);
-        n.setTauxInteret(p_tauxInteret);
         compteCourantRepository.save(n);
         return "Compte courant Saved";
     }
@@ -58,7 +57,6 @@ public class CompteCourantController {
         n.setIntitule(p_intitule);
         n.setSolde(p_solde);
         n.setNumero(p_compteID);
-        n.setTauxInteret(p_tauxInteret);
 
         compteCourantRepository.save(n);
         return "Compte courant updated";

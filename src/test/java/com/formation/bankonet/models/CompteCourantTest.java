@@ -11,7 +11,7 @@ class CompteCourantTest extends CompteCourant{
     void setUp() {
         this.intitule = "CompteCourantTest";
         this.solde = 100;
-        this.tauxInteret = 0.1;
+        this.montantDecouvertAutorise = 200;
     }
 
     @Test
@@ -38,19 +38,19 @@ class CompteCourantTest extends CompteCourant{
 
     @Test
     void get_tauxInteret_retourne_tauxInteret() {
-        assertEquals(this.tauxInteret, 0.1);
+        assertEquals(this.montantDecouvertAutorise, 200);
     }
 
     @Test
     void set_tauxInteret_change_tauxInteret() {
-        this.setTauxInteret(0.1);
-        assertEquals(this.tauxInteret, 0.1);
+        this.setMontantDecouvertAutorise(100);
+        assertEquals(this.montantDecouvertAutorise, 100);
     }
 
     @Test
     void testToString() {
         assertEquals(this.toString(), "CompteCourant{" +
-                "tauxInteret=" + 0.1 +
+                "montantDecouvertAutorise=" + 200 +
                 ", numero=" + 0 +
                 ", intitule='" + "CompteCourantTest" + '\'' +
                 ", solde=" + 100.0 +
