@@ -20,7 +20,7 @@ public class CompteCourant extends Compte{
 
     @Override
     public String toString() {
-        return "CompteEpargne{" +
+        return "CompteCourant{" +
                 "montantDecouvertAutorise=" + montantDecouvertAutorise +
                 ", numero=" + numero +
                 ", intitule='" + intitule + '\'' +

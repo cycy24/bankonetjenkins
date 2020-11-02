@@ -50,7 +50,7 @@ class CompteCourantTest extends CompteCourant{
     @Test
     void testToString() {
         assertEquals(this.toString(), "CompteCourant{" +
-                "montantDecouvertAutorise=" + 200 +
+                "montantDecouvertAutorise=" + 200.0 +
                 ", numero=" + 0 +
                 ", intitule='" + "CompteCourantTest" + '\'' +
                 ", solde=" + 100.0 +

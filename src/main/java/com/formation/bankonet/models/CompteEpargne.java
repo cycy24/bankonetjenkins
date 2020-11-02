@@ -21,7 +21,7 @@ public class CompteEpargne extends Compte{
 
     @Override
     public String toString() {
-        return "CompteCourant{" +
+        return "CompteEpargne{" +
                 "tauxInteret=" + tauxInteret +
                 ", numero=" + numero +
                 ", intitule='" + intitule + '\'' +
