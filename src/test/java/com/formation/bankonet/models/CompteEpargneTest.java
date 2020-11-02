@@ -46,4 +46,14 @@ class CompteEpargneTest extends CompteEpargne{
         this.setMontantDecouvertAutorise(5);
         assertEquals(this.montantDecouvertAutorise,5);
     }
+
+    @Test
+    void testToString() {
+        assertEquals(this.toString(), "CompteEpargne{" +
+                "montantDecouvertAutorise=" + 200.0 +
+                ", numero=" + 0 +
+                ", intitule='" + "Compte A" + '\'' +
+                ", solde=" + 2.0 +
+                '}');
+    }
 }

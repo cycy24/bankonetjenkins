@@ -9,20 +9,20 @@ class CompteCourantTest extends CompteCourant{
 
     @BeforeEach
     void setUp() {
-        this.intitule = "CompteCourant";
+        this.intitule = "CompteCourantTest";
         this.solde = 100;
         this.tauxInteret = 0.1;
     }
 
     @Test
     void get_intitule_retourne_intitule() {
-        assertEquals(this.getIntitule(),"CompteCourant");
+        assertEquals(this.getIntitule(),"CompteCourantTest");
     }
 
     @Test
     void set_intitule_change_intitule() {
-        this.setIntitule("New CompteCourant");
-        assertEquals(this.intitule, "New CompteCourant");
+        this.setIntitule("New CompteCourantTest");
+        assertEquals(this.intitule, "New CompteCourantTest");
     }
 
     @Test
@@ -45,5 +45,15 @@ class CompteCourantTest extends CompteCourant{
     void set_tauxInteret_change_tauxInteret() {
         this.setTauxInteret(0.1);
         assertEquals(this.tauxInteret, 0.1);
+    }
+
+    @Test
+    void testToString() {
+        assertEquals(this.toString(), "CompteCourant{" +
+                "tauxInteret=" + 0.1 +
+                ", numero=" + 0 +
+                ", intitule='" + "CompteCourantTest" + '\'' +
+                ", solde=" + 100.0 +
+                '}');
     }
 }

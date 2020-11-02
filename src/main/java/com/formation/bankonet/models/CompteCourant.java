@@ -20,5 +20,14 @@ public class CompteCourant extends Compte{
         this.tauxInteret = tauxInteret;
     }
 
+    @Override
+    public String toString() {
+        return "CompteCourant{" +
+                "tauxInteret=" + tauxInteret +
+                ", numero=" + numero +
+                ", intitule='" + intitule + '\'' +
+                ", solde=" + solde +
+                '}';
+    }
 }
 

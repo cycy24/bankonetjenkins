@@ -19,4 +19,14 @@ public class CompteEpargne extends Compte{
     public void setMontantDecouvertAutorise(double montantDecouvertAutorise) {
         this.montantDecouvertAutorise = montantDecouvertAutorise;
     }
+
+    @Override
+    public String toString() {
+        return "CompteEpargne{" +
+                "montantDecouvertAutorise=" + montantDecouvertAutorise +
+                ", numero=" + numero +
+                ", intitule='" + intitule + '\'' +
+                ", solde=" + solde +
+                '}';
+    }
 }

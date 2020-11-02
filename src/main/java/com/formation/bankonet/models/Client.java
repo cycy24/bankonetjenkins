@@ -3,6 +3,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -14,7 +15,7 @@ public class Client {
     protected String nom;
     protected String prenom;
 
-    protected List<Compte> compteList;
+    protected List<Compte> compteList = new ArrayList();
 
     public int getIdentifiant() {
         return identifiant;
@@ -59,5 +60,15 @@ public class Client {
             i++;
         }
         return n;
+    }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "identifiant=" + identifiant +
+                ", nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
+                ", compteList=" + compteList +
+                '}';
     }
 }

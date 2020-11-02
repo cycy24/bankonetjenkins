@@ -2,7 +2,7 @@ package com.formation.bankonet.models;
 
 
 public abstract class Compte {
-    private int numero;
+    protected int numero;
 
     protected String intitule;
     protected double solde;

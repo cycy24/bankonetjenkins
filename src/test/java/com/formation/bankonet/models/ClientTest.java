@@ -11,6 +11,11 @@ class ClientTest extends Client{
     void setUp() {
         this.nom = "Patrick";
         this.prenom = "Patrick";
+        CompteCourant compteTest = new CompteCourant();
+        compteTest.setTauxInteret(1);
+        compteTest.setSolde(10);
+        compteTest.setIntitule("Test");
+        this.compteList.add(compteTest);
     }
 
     @Test
@@ -38,4 +43,13 @@ class ClientTest extends Client{
     }
 
 
+    @Test
+    void testToString() {
+        assertEquals(this.toString(), "Client{" +
+                "identifiant=" + 0 +
+                ", nom='" + this.nom + '\'' +
+                ", prenom='" + this.prenom + '\'' +
+                ", compteList=" + this.compteList +
+                '}');
+    }
 }
