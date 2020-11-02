@@ -1,6 +1,8 @@
 package com.formation.bankonet.models;
 
+import javax.persistence.MappedSuperclass;
 
+@MappedSuperclass
 public abstract class Compte {
     protected int numero;
 

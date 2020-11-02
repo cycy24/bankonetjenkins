@@ -11,6 +11,5 @@ import org.springframework.data.repository.query.Param;
 
 public interface ClientRepository extends CrudRepository<Client, Integer> {
 
-    @Query("from comptecourant, compteepargne WHERE where idClient=:idClient")
-    public Iterable<Compte> findCompteClient(@Param("idClient") int idClient);
+
 }

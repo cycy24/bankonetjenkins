@@ -1,8 +1,5 @@
 package com.formation.bankonet.models;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +12,21 @@ public class Client {
     protected String nom;
     protected String prenom;
 
+    @ElementCollection
+    @CollectionTable(name="comptecourant", joinColumns=@JoinColumn(name="identifiant"))
+    @Column(name="idClient")
+    protected List<CompteCourant> compteListCourant = new ArrayList();
+
+    @Transient
     protected List<Compte> compteList = new ArrayList();
+
+    public List<CompteCourant> getCompteListCourant() {
+        return compteListCourant;
+    }
+
+    public void setCompteListCourant(List<CompteCourant> compteListCourant) {
+        this.compteListCourant = compteListCourant;
+    }
 
     public int getIdentifiant() {
         return identifiant;

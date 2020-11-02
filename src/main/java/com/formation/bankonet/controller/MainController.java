@@ -74,7 +74,7 @@ public class MainController {
     @GetMapping(path="/clientAccount")
     public @ResponseBody Client getClientAndAccount(@RequestParam int p_clientid){
         //clientRepository.findCompteClient(p_clientid)
-
+/*
         Client c = new Client();
 
         List<Compte> compteList = new ArrayList<>();
@@ -87,7 +87,8 @@ public class MainController {
 
 
 
-        return c;
+        return c;*/
+        return null;
     }
 
 }
