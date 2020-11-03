@@ -15,7 +15,7 @@ class ClientTest extends Client{
         compteTest.setTauxInteret(1);
         compteTest.setSolde(10);
         compteTest.setIntitule("Test");
-        this.compteList.add(compteTest);
+       // this.compteList.add(compteTest);
     }
 
     @Test
@@ -49,7 +49,7 @@ class ClientTest extends Client{
                 "identifiant=" + 0 +
                 ", nom='" + this.nom + '\'' +
                 ", prenom='" + this.prenom + '\'' +
-                ", compteList=" + this.compteList +
+                //", compteList=" + this.compteList +
                 '}');
     }
 }

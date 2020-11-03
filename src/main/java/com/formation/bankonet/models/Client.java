@@ -1,6 +1,9 @@
 package com.formation.bankonet.models;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
@@ -13,20 +16,29 @@ public class Client {
     protected String nom;
     protected String prenom;
 
-    @ElementCollection
-    @CollectionTable(name="comptecourant", joinColumns=@JoinColumn(name="idClient"))
-    protected Set<CompteCourant> compteListCourant ;
+    @OneToMany(mappedBy = "client")
+    protected Collection<CompteCourant> compteCourantList = new ArrayList<>();
+    @OneToMany(mappedBy = "client")
+    protected Collection<CompteEpargne> compteEpargneList = new ArrayList<>();
 
+   /* @Transient
+    @JsonIgnore
+    protected List<Compte> compteList = new ArrayList<>();*/
 
-    @Transient
-    protected List<Compte> compteList = new ArrayList();
-
-    public Set<CompteCourant> getCompteListCourant() {
-        return compteListCourant;
+    public Collection<CompteCourant> getCompteListCourant() {
+        return compteCourantList;
     }
 
-    public void setCompteListCourant(Set<CompteCourant> compteListCourant) {
-        this.compteListCourant = compteListCourant;
+    public void setCompteListCourant(Collection<CompteCourant> compteListCourant) {
+        this.compteCourantList = compteListCourant;
+    }
+
+    public Collection<CompteEpargne> getCompteEpargneList() {
+        return compteEpargneList;
+    }
+
+    public void setCompteEpargneList(Collection<CompteEpargne> compteEpargneList) {
+        this.compteEpargneList = compteEpargneList;
     }
 
     public int getIdentifiant() {
@@ -53,7 +65,7 @@ public class Client {
         this.prenom = prenom;
     }
 
-    public void addCompte(Compte p_compte) {
+  /*  public void addCompte(Compte p_compte) {
         this.compteList.add(p_compte);
     }
 
@@ -72,7 +84,7 @@ public class Client {
             i++;
         }
         return n;
-    }
+    }*/
 
     @Override
     public String toString() {
@@ -80,7 +92,7 @@ public class Client {
                 "identifiant=" + identifiant +
                 ", nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
-                ", compteList=" + compteList +
+               // ", compteList=" + compteList +
                 '}';
     }
 }

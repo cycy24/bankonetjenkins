@@ -1,11 +1,9 @@
 package com.formation.bankonet.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name="comptecourant", schema="bankonet")
 public class CompteCourant extends Compte{
 
     protected double montantDecouvertAutorise;

@@ -1,9 +1,8 @@
 package com.formation.bankonet.models;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 
 @MappedSuperclass
 public abstract class Compte {
@@ -14,7 +13,8 @@ public abstract class Compte {
     protected String intitule;
     protected double solde;
 
-
+    @ManyToOne
+    @JoinColumn(name = "idClient")
     protected Client client;
 
     public String getIntitule() {
