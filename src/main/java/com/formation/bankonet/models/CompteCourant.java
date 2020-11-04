@@ -16,6 +16,25 @@ public class CompteCourant extends Compte{
         this.montantDecouvertAutorise = montantDecouvertAutorise;
     }
 
+
+    public int debit(int amount){
+
+        if((this.solde - amount) < 0-this.montantDecouvertAutorise){
+            return 403;
+        }else{
+            this.solde = this.solde - amount;
+            return 200;
+        }
+
+    }
+
+    public int credit(int amount){
+
+        this.solde = this.solde + amount;
+        return 200;
+
+    }
+
     @Override
     public String toString() {
         return "CompteCourant{" +

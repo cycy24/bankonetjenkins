@@ -71,6 +71,8 @@ public class MainController {
     }
 
 
+
+
     @GetMapping(path="/clientAccount")
     public @ResponseBody Client getClientAndAccount(@RequestParam int p_clientid){
         //clientRepository.findCompteClient(p_clientid)

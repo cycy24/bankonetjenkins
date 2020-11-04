@@ -48,6 +48,25 @@ class CompteCourantTest extends CompteCourant{
     }
 
     @Test
+    void compte_debit_success(){
+        assertEquals(this.debit(50),200);
+        assertEquals(this.solde,50);
+    }
+
+    @Test
+    void compte_debit_failed(){
+
+        assertEquals(this.debit(301),403);
+        assertEquals(this.solde,100);
+    }
+
+    @Test
+    void compte_credit_success(){
+        assertEquals(this.credit(100),200);
+        assertEquals(this.solde,200);
+    }
+
+    @Test
     void testToString() {
         assertEquals(this.toString(), "CompteCourant{" +
                 "montantDecouvertAutorise=" + 200.0 +

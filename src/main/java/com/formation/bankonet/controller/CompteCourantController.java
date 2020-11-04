@@ -1,5 +1,6 @@
 package com.formation.bankonet.controller;
 
+import com.formation.bankonet.models.Client;
 import com.formation.bankonet.models.Compte;
 import com.formation.bankonet.models.CompteCourant;
 import com.formation.bankonet.repositories.CompteCourantRepository;
@@ -61,4 +62,36 @@ public class CompteCourantController {
         compteCourantRepository.save(n);
         return "Compte courant updated";
     }
+
+
+    @PatchMapping(path="/debit")
+    public @ResponseBody String debitById(@RequestParam int p_id
+            , @RequestParam int p_amount) {
+
+        int debitFall = 0;
+        CompteCourant compteToDebit = compteCourantRepository.findById(p_id).get();
+
+        debitFall = compteToDebit.debit(p_amount);
+
+        if(debitFall == 200){
+            compteCourantRepository.save(compteToDebit);
+            return "Debit succesfull";
+        }else{
+            return "Debit failed";
+        }
+
+    }
+
+    @PatchMapping(path="/credit")
+    public @ResponseBody String creditById(@RequestParam int p_id
+            , @RequestParam int p_amount) {
+        CompteCourant comtpeToCredit = compteCourantRepository.findById(p_id).get();
+
+        comtpeToCredit.credit(p_amount);
+        compteCourantRepository.save(comtpeToCredit);
+
+        return "Credit succesfull";
+    }
+
+
 }
