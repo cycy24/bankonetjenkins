@@ -17,6 +17,7 @@ public abstract class Compte {
     @JoinColumn(name = "idClient")
     protected Client client;
 
+    //GETTER AND SETTER
     public String getIntitule() {
         return intitule;
     }
