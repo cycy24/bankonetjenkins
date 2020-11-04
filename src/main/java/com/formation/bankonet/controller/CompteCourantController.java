@@ -3,7 +3,9 @@ package com.formation.bankonet.controller;
 import com.formation.bankonet.models.Client;
 import com.formation.bankonet.models.Compte;
 import com.formation.bankonet.models.CompteCourant;
+import com.formation.bankonet.models.Operation;
 import com.formation.bankonet.repositories.CompteCourantRepository;
+import com.formation.bankonet.repositories.OperationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -12,8 +14,9 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(path="/compteCourant")
 public class CompteCourantController {
     @Autowired
-
     private CompteCourantRepository compteCourantRepository;
+    @Autowired
+    private OperationRepository operationRepository;
     /*
             CompteCourant Handling
 
@@ -71,9 +74,15 @@ public class CompteCourantController {
         int debitFall = 0;
         CompteCourant compteToDebit = compteCourantRepository.findById(p_id).get();
 
+        Operation operation = new Operation();
         debitFall = compteToDebit.debit(p_amount);
 
         if(debitFall == 200){
+            operation.setMontant(p_amount);
+            operation.setTransac_type("DEBIT");
+            operation.setId_client(compteToDebit.getId_client());
+            operationRepository.save(operation);
+
             compteCourantRepository.save(compteToDebit);
             return "Debit succesfull";
         }else{
@@ -86,6 +95,12 @@ public class CompteCourantController {
     public @ResponseBody String creditById(@RequestParam int p_id
             , @RequestParam int p_amount) {
         CompteCourant comtpeToCredit = compteCourantRepository.findById(p_id).get();
+        Operation operation = new Operation();
+
+        operation.setMontant(p_amount);
+        operation.setTransac_type("CREDIT");
+        operation.setId_client(comtpeToCredit.getId_client());
+        operationRepository.save(operation);
 
         comtpeToCredit.credit(p_amount);
         compteCourantRepository.save(comtpeToCredit);

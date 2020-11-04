@@ -12,6 +12,7 @@ public abstract class Compte {
 
     protected String intitule;
     protected double solde;
+    protected int id_client;
 
     @ManyToOne
     @JoinColumn(name = "idClient")
@@ -40,5 +41,13 @@ public abstract class Compte {
 
     public void setSolde(double solde) {
         this.solde = solde;
+    }
+
+    public int getId_client() {
+        return id_client;
+    }
+
+    public void setId_client(int id_client) {
+        this.id_client = id_client;
     }
 }

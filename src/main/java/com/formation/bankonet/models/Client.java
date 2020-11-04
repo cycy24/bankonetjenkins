@@ -16,10 +16,13 @@ public class Client {
     protected String nom;
     protected String prenom;
 
+
     @OneToMany(mappedBy = "client")
     protected Collection<CompteCourant> compteCourantList = new ArrayList<>();
     @OneToMany(mappedBy = "client")
     protected Collection<CompteEpargne> compteEpargneList = new ArrayList<>();
+    @OneToMany(mappedBy = "client")
+    protected Collection<Operation> clientOperation = new ArrayList<>();
 
    /* @Transient
     @JsonIgnore
